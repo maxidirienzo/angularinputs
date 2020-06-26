@@ -1,0 +1,30 @@
+<div class="angularinput form-group" [ngClass]="{ 'has-error': required && submitted && ( (modelValue === '') || (!modelValue) || (modelValue === null) ) }">
+  <label *ngIf="!hidelabel"><span class="angularinput-label-required" *ngIf="required">* </span>{{title}}</label>
+
+  <input type="file" name="_filectr_{{name}}" accept="{{accept}}" value="" #filectr style="display: none" (change)='doUpload()'/>
+  <div class="input-group" [hidden]="uploading">
+    <input
+      class="form-control"
+      style="cursor:pointer;"
+      type="text"
+      readonly="readonly"
+      placeholder="{{placeholder}}"
+      #formcontrolcomponent="ngModel"
+      [name]="name"
+      [(ngModel)]="modelValue"
+      [disabled]="disabled"
+      [required]="required"
+      (ngModelChange)="updateChanges()"
+      (click)="doSelect()"
+    />
+    <div class="input-group-append" [hidden]="!showClear()">
+      <button type="button" class="btn btn-default" (click)="clearUpload()"><span class="fa fa-times text-danger"></span></button>
+    </div>
+    <div class="input-group-append">
+      <button type="button" class="btn btn-default" (click)="doSelect()"><span class="fa fa-upload"></span></button>
+    </div>
+  </div>
+
+  <div class="help-text text-danger" [hidden]="!this.errorMessage || this.errorMessage == ''"><span class="fa fa-times"></span> {{this.errorMessage}}</div>
+  <div class="progress" [hidden]="!uploading"><div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': processDone+'%'}">{{processDone}}%</div></div>
+</div>

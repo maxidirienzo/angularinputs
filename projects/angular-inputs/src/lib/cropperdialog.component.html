@@ -1,0 +1,43 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{title}}</h4>
+</div>
+<div class="modal-body">
+
+  <div class="form-group">
+    <input type="file" accept=".jpg,.jpeg,.png" #filectr style="display: none" (change)="fileChangeEvent($event)"/>
+
+    <div id="avatarplaceholder" (click)="doSelect()" *ngIf="!imageloaded">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M3 4V1h2v3h3v2H5v3H3V6H0V4h3zm3 6V7h3V4h7l1.83 2H21c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V10h3zm7 9c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-3.2-5c0 1.77 1.43 3.2 3.2 3.2s3.2-1.43 3.2-3.2-1.43-3.2-3.2-3.2-3.2 1.43-3.2 3.2z"></path>
+      </svg>
+    </div>
+
+
+    <image-cropper
+      #cropper
+      [imageChangedEvent]="imageChangedEvent"
+      [maintainAspectRatio]="maintainAspectRatio || true"
+      [aspectRatio]="aspectRatio || 1"
+      [format]="imageFormat || 'jpeg'"
+      [cropperMinWidth]="cropperMinWidth || 150"
+      [cropperMinHeight]="cropperMinHeight || 150"
+      [imageQuality]="100"
+      (imageCropped)="imageCropped($event)"
+      (imageLoaded)="imageLoaded()"
+      (cropperReady)="cropperReady()"
+      (loadImageFailed)="loadImageFailed()"
+    ></image-cropper>
+
+
+    <div class="progress" *ngIf="uploading">
+      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': processDone+'%'}">{{processDone}}%</div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer justify-content-center">
+  <div *ngIf="errorMessage" class="alert alert-sm alert-danger"><span class="fa fa-warning"></span>{{errorMessage}}</div>
+
+  <angularinputs-loading *ngIf="uploading"></angularinputs-loading>
+  <button *ngIf="!uploading" class="btn btn-success" type="button" (click)="doUpload()"><span class="fa fa-check"></span> Guardar</button>
+  <button *ngIf="!uploading" class="btn btn-danger" type="button" (click)="cancel()"><span class="fa fa-times"></span> Cancelar</button>
+</div>

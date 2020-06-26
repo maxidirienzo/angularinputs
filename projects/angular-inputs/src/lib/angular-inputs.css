@@ -1,0 +1,102 @@
+.angularinput-yesno-yes {
+  color: #93c01f;
+}
+
+.angularinput-yesno-no {
+  color: #e74620;
+}
+
+.angularinput-label-required {
+  color: #e74620;
+  font-weight: bold;
+}
+
+.angularinput label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.angularinput .form-control {
+  font-size: 0.95rem;
+  color: #000;
+  border-radius: 0;
+  padding: 0px 6px;
+  height: 36px;
+  line-height: 36px;
+  border: 1px solid #e0e0e0;
+}
+
+.angularinput .form-control:focus {
+  color: #111;
+}
+
+.angularinput select.form-control:not([size]):not([multiple]) {
+  height: 36px !important;
+  line-height: 36px;
+  padding: 0 6px;
+}
+
+.angularinput select.form-control[multiple], .angularinput select.form-control[size] {
+  height: auto !important;
+}
+
+
+.angularinput .form-control.select-multi {
+  height: auto !important;
+}
+
+.angularinput .input-group .input-group-prepend, .angularinput .input-group .input-group-append {
+  height: 36px;
+}
+
+.angularinput .input-group .input-group-append {
+  margin-left: 0px;
+}
+
+.angularinput .input-group .input-group-append .btn {
+  border-radius: 0;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-left: 0;
+  padding: 4px 8px;
+}
+
+.angularinput .input-group .input-group-text {
+  border-radius: 0;
+}
+
+.angularinput textarea.form-control {
+  height: auto;
+  line-height: 22px;
+  padding: 10px;
+}
+
+.angularinput input[ngbdatepicker] {
+  padding-right: 1px;
+}
+
+.angularinput .help-text {
+  font-size: 0.85rem;
+  color: #6c757d !important;
+}
+
+.angularinput .help-text.text-danger {
+  color: #e74620 !important;
+}
+
+.angularinput.has-error .help-block,
+.angularinput.has-error .control-label,
+.angularinput.has-error .radio,
+.angularinput.has-error .checkbox,
+.angularinput.has-error .radio-inline,
+.angularinput.has-error .checkbox-inline,
+.angularinput.has-error.radio label,
+.angularinput.has-error.checkbox label,
+.angularinput.has-error.radio-inline label,
+.angularinput.has-error.checkbox-inline label,
+.angularinput.has-error label {
+  color: #e74620;
+}
